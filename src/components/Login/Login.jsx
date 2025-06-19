@@ -1,8 +1,9 @@
-import React, { useState, useEffect, useReducer } from 'react';
+import React, { useState, useEffect, useReducer, useContext } from 'react';
 
 import Card from '../UI/Card/Card';
 import classes from './Login.module.css';
 import Button from '../UI/Button/Button';
+import AuthContext from '../../Store/auth-context';
 
 // Reducer Function
 const emaiReducer = (state, action) => {
@@ -39,9 +40,12 @@ const Login = (props) => {
 		isValid: null,
 	});
 
-  // Alias Assignment to further optimize useEffect
-  const {isValid: emailIsValid} = emailState;
-  const {isValid: passwordIsValid} = passwordSate;
+	//Context Authentication
+	const authCtx = useContext(AuthContext);
+
+	// Alias Assignment to further optimize useEffect
+	const { isValid: emailIsValid } = emailState;
+	const { isValid: passwordIsValid } = passwordSate;
 
 	useEffect(() => {
 		const identify = setTimeout(() => {
@@ -73,7 +77,8 @@ const Login = (props) => {
 
 	const submitHandler = (event) => {
 		event.preventDefault();
-		props.onLogin(emailState.value, passwordSate.value);
+    console.log( emailState.value, passwordSate.value);
+		authCtx.onLogin(emailState.value, passwordSate.value);
 	};
 
 	return (
