@@ -1,22 +1,19 @@
 import React, { useImperativeHandle, useRef } from 'react';
 import classes from './UserInput.module.css';
-
+//ForwardRef allows forwarding of ref(useRaf())
 const UserInput = React.forwardRef((props, ref) => {
 	const inputRef = useRef();
 
-  const activate = ()=> {
-    inputRef.current.focus();
-  }
+  // Used to parse in inputRef in input element
+	const activate = () => {
+		inputRef.current.focus();
+	};
 
-  useImperativeHandle(ref, () => {
-    return {
-      focus: activate
-    }
-  })
-
-	// useEffect(() => {
-	// 	inputRef.current.focus();
-	// }, []);
+	useImperativeHandle(ref, () => {
+		return {
+			focus: activate,
+		};
+	});
 
 	return (
 		<div
@@ -37,3 +34,7 @@ const UserInput = React.forwardRef((props, ref) => {
 });
 
 export default UserInput;
+
+// useEffect(() => {
+// 	inputRef.current.focus();
+// }, []);
