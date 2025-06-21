@@ -1,17 +1,19 @@
 import React, { useImperativeHandle, useRef } from 'react';
 import classes from './UserInput.module.css';
-//ForwardRef allows forwarding of ref(useRaf())
+
+//ForwardRef allows forwarding of ref(useRaf())/ Componenet bound to a ref
 const UserInput = React.forwardRef((props, ref) => {
 	const inputRef = useRef();
 
-  // Used to parse in inputRef in input element
+	// Used to parse in inputRef in input element
 	const activate = () => {
 		inputRef.current.focus();
 	};
 
+	// Data to be use out of this component
 	useImperativeHandle(ref, () => {
 		return {
-			focus: activate,
+			focus: activate, // focus is the external set here
 		};
 	});
 

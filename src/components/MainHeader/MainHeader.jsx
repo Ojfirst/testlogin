@@ -7,7 +7,7 @@ import Button from '../UI/Button/Button';
 const MainHeader = () => {
 	return (
 		<header className={classes['main-header']}>
-			<h1>A Typical Page</h1>
+			<h1>Typical Login Page</h1>
 			<Navigation />
 		</header>
 	);
