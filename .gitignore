@@ -20,8 +20,4 @@ node_modules
 *.sln
 *.sw?
 public/vite.svg
-vite.config.js
-README.md
-package-lock.json
-package.json
-eslint.config.js
+
